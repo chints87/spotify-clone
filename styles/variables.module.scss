@@ -1,0 +1,52 @@
+$primary-color: red;
+
+:export{
+    primaryColor: $primary-color
+}
+
+/* :root{
+    --display-tablet-width: 830px;
+    --display-mobile: grid-template-columns(repeat(8, 1fr));
+    --display-mobile-margin: 1rem;
+    --display-mobile-gutter: 1rem;
+  
+    --primary-red-02 : #F26E6A;
+    --primary-red-01 : #C86360;
+    --primary-red00 : #B23D39;
+    --primary-red01 : #8B2B27;
+    --primary-red02 : #762623;
+   
+    --ui-grey01: #421312;
+    --ui-grey02: #895251;
+    --ui-grey03: #B98E8C;
+    --ui-grey04: #D3B3B2; 
+    --ui-grey05: #F6DEDD;
+    --ui-white: #FFFFFF;
+  
+    --grey-01:#636060;
+    --grey-02: #969696;
+    --grey-03: #c3c0c0;
+    --grey-04: #e8e8e8;
+    --grey-05: #f4f4f4;
+  
+    
+  
+    --spacer: 1rem;
+    --spacer-sm: calc(var(--spacer) * 0.5);
+    --spacer-md: calc(var(--spacer) * 2);
+    --spacer-lg: calc(var(--spacer) * 3);
+  
+    --fw-n: 300;
+    --fw-md: 600;
+    --fw-lg: 900;
+  
+    --fs-s: 0.5rem;
+    --fs-b: 1rem;  
+    --fs-2: 2rem;
+    --fs-3: 3.5rem;
+    --fs-main: 2rem;
+    --fs-section: 1.75rem;
+    --fs-title: 1.5rem; 
+  
+    --header-ht: 190px; 
+  } */
