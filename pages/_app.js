@@ -1,4 +1,8 @@
-import '../styles/globals.css'
+import '../styles/scss/globals.scss'
+
+export function reportWebVitals(metric) {
+  console.log(metric)
+}
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
