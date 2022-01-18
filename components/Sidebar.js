@@ -1,4 +1,6 @@
-import { HomeIcon, HeartIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon } from '@heroicons/react/outline';
+import {
+  HomeIcon, HeartIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon,
+} from '@heroicons/react/outline';
 import styles from '@/styles/scss/Sidebar.module.scss';
 
 export default function Sidebar() {
@@ -41,6 +43,55 @@ export default function Sidebar() {
           <p>Your Episodes</p>
         </div>
       </button>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
+      <div>Playlist</div>
     </div>
   );
 }
