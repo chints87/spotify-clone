@@ -1,42 +1,30 @@
-.btn {
+%btn {
     display: inline-block;
-    background: red;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 0;
-    border-radius: 5px;
-  }
+    padding: 10px 20px;   
+    border: none;
+  }  
+
+.primary{
+  @extend %btn;
+  background-color: white;
+  transition: all ease-in-out 0.2s;
   
-  .btn:hover {
-    opacity: 0.9;
+
+  &:hover{
+    background-color: grey;
+
   }
-  
-  .btn-secondary {
-    font: inherit;
-    font-size: 13px;
-    background: #000;
-    color: #fff !important;
-    border: 0;
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin: 0 20px;
-    cursor: pointer;
+}  
+
+.btn-secondary{
+  @extend %btn;
+  background-color: red;
+
+  &:hover{
+    background-color: grey;
   }
-  
-  .btn-secondary:hover {
-    opacity: 0.8;
-  }
-  
-  .btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .btn-icon svg {
-    margin-right: 5px;
-  }
+}  
+
   
   
   
