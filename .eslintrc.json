@@ -8,6 +8,7 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension" : "off",
         "react/prop-types": "off",
-        "jsx-a11y/anchor-is-valid": "off"
+        "jsx-a11y/anchor-is-valid": "off",
+        "import/no-unresolved" : "warn"
     }
 }
