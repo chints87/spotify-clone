@@ -9,6 +9,8 @@
 
 html,
 body {
+  min-height: 100vh;
+  width: 100%;
   background-color: $ui-grey05;
   padding: 0;
   margin: 0;
