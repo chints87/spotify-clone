@@ -1,12 +1,16 @@
 import {
   HomeIcon, HeartIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon,
 } from '@heroicons/react/outline';
+import { useSession, signOut } from 'next-auth/react';
 import styles from '@/styles/scss/Sidebar.module.scss';
 
 export default function Sidebar() {
+  const { data: session, status } = useSession();
+  console.log('in sidebar', status);
+  console.log('in sidebar', session);
   return (
     <div className={styles.sideBar}>
-      <button type="button" className="primary">
+      <button type="button" className="primary" onClick={() => signOut()}>
         <div className={styles.buttonContent}>
           <HomeIcon className="iconSize" />
           <p>Home</p>
@@ -24,7 +28,10 @@ export default function Sidebar() {
           <p>Your Library</p>
         </div>
       </button>
-      <hr />
+      <hr style={{
+        border: '1', color: 'grey',
+      }}
+      />
       <button type="button" className="primary">
         <div className={styles.buttonContent}>
           <PlusCircleIcon className="iconSize" />
