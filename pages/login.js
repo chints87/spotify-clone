@@ -1,4 +1,4 @@
-import { getProviders } from 'next-auth/react';
+import { getProviders, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import styles from '@/styles/scss/Login.module.scss';
 
@@ -12,9 +12,13 @@ export default function login({ providers }) {
         height={150}
       />
       {Object.values(providers).map((provider) => (
-        <div key={provider.key}>
-          <button type="button" className="login">
-            Log in with
+        <div key={provider.name}>
+          <button
+            type="button"
+            className="login"
+            onClick={() => signIn(provider.id, { callbackUrl: '/' })}
+          >
+            Login with
             {provider.name}
           </button>
         </div>
@@ -25,7 +29,6 @@ export default function login({ providers }) {
 
 export async function getServerSideProps() {
   const providers = await getProviders();
-
   return {
     props: {
       providers,

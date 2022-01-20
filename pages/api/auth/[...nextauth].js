@@ -4,16 +4,20 @@ import spotifyApi, { LOGIN_URL } from 'lib/spotify';
 
 const refreshAccessToken = async (token) => {
   try {
+    // Set tokens on spotify webapi
     spotifyApi.setAccessToken(token.accessToken);
     spotifyApi.setRefreshToken(token.refreshToken);
 
+    // Calling function on the spotify webapi to get refresh token
     const { body: refreshedToken } = await spotifyApi.refreshAccessToken();
 
     return {
       ...token,
       accessToken: refreshedToken.access_token,
       accessTokenExpires: Date.now() + refreshAccessToken.expires_in * 1000,
-      refreshToken: refreshedToken.refresh_token || token.refreshToken,
+      // It returns the right operand ( rightExpression ) if the left operand
+      // ( leftExpression ) is null or undefined .
+      refreshToken: refreshedToken.refresh_token ?? token.refreshToken,
     };
   } catch (error) {
     console.log(error);
@@ -30,6 +34,8 @@ export default NextAuth({
     SpotifyProvider({
       clientId: process.env.SPOTIFY_PUBLIC_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_PUBLIC_CLIENT_SECRET,
+      // Authentication request to spotify. This is specific url given
+      // by the provider
       authorization: LOGIN_URL,
     }),
     // ...add more providers here
@@ -41,8 +47,9 @@ export default NextAuth({
   },
   callbacks: {
     async jwt({ token, account, user }) {
-      // initial sign in
+      // initial sign in and since there is no token
       if (account && user) {
+        console.log('Logged in');
         return {
           ...token,
           accessToken: account.access_token,
@@ -59,10 +66,11 @@ export default NextAuth({
       }
 
       // Access token expires, then get new access token using refresh token
-      console.log('Access token valid');
+      console.log('Access token expired');
       return refreshAccessToken(token);
     },
 
+    // To make contents available on the browser
     async session({ session, token }) {
       session.user.accessToken = token.accessToken;
       session.user.refreshToken = token.refreshToken;
