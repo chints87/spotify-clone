@@ -1,0 +1,15 @@
+.homePage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: black;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.homePage main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}

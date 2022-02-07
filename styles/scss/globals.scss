@@ -1,5 +1,6 @@
 @import 'config';
 @import 'buttons';
+@import 'icon';
 
 * {
   box-sizing: border-box;
@@ -15,6 +16,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: $font-stack;
+  font-size: 1rem;
 }
 
 a {

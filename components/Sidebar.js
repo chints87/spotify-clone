@@ -1,13 +1,31 @@
+import { useState, useEffect } from 'react';
 import {
   HomeIcon, HeartIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon,
 } from '@heroicons/react/outline';
 import { useSession, signOut } from 'next-auth/react';
+import { useRecoilState } from 'recoil';
+import { playlistIdState } from 'atoms/playlistAtom';
 import styles from '@/styles/scss/Sidebar.module.scss';
+import useSpotify from '../hooks/useSpotify';
 
 export default function Sidebar() {
-  const { data: session, status } = useSession();
-  console.log('in sidebar', status);
-  console.log('in sidebar', session);
+  const spotifyApi = useSpotify();
+  const [playlists, setPlaylists] = useState([]);
+  const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
+
+  console.log('This is the initial playlist', playlistId);
+
+  const { data: session } = useSession();
+  console.log(session);
+  // On mount, the playlists of the user are fetched
+  useEffect(() => {
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getUserPlaylists().then((data) => {
+        setPlaylists(data.body.items);
+      });
+    }
+  }, [session, spotifyApi]);
+
   return (
     <div className={styles.sideBar}>
       <button type="button" className="primary" onClick={() => signOut()}>
@@ -29,7 +47,7 @@ export default function Sidebar() {
         </div>
       </button>
       <hr style={{
-        border: '1', color: 'grey',
+        border: '1', borderColor: '#636363',
       }}
       />
       <button type="button" className="primary">
@@ -50,55 +68,20 @@ export default function Sidebar() {
           <p>Your Episodes</p>
         </div>
       </button>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
-      <div>Playlist</div>
+      <hr style={{
+        border: '1', borderColor: '#636363',
+      }}
+      />
+      {playlists.map((playlist) => (
+        <div
+          key={playlist.id}
+          className={styles.playlistName}
+          onClick={() => setPlaylistId(playlist.id)}
+          role="presentation"
+        >
+          {playlist.name}
+        </div>
+      )) }
     </div>
   );
 }

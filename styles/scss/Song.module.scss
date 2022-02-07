@@ -1,0 +1,50 @@
+.songRow{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    transition: all ease-out 0.7s;
+    color: white;
+
+    &:hover{
+        background-color: rgb(48, 48, 48);
+        border-radius: 0.25rem;
+    }
+
+    .songDetails{
+        display: flex;
+        flex-grow: 1;
+        gap: 0.5rem;
+        margin-left: 2rem;
+        align-items: center;
+    
+        .poster{
+            padding: 1rem;
+        }
+
+        .songArtist{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    
+    }
+
+    .songExtraDetails{
+        display: flex;
+        align-items: center;
+        gap: 10rem;
+
+
+        .songAlbum{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 200px;
+        }
+
+    }
+
+
+
+    
+}
+
